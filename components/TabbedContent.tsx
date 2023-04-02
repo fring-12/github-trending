@@ -23,26 +23,24 @@ const TabbedContent: React.FC<Props> = ({ tabs }) => {
           <div className={TabStyle.infomationWrapper}>
             {selectedTab?.content?.items?.map((item: any, key: any) => {
               return (
-                // <Link
-                //   href={{
-                //     pathname: "/users",
-                //     query: { id: item?.id },
-                //   }}
-                //   key={key}
-                // >
-                  <div className={TabStyle.card} onClick={() => {
-                    router.push(`/users/${item.id}`, undefined, { shallow: true });
-                  }} key={key}>
-                    <div className={TabStyle.cardHeader}>
-                      <h2>ID: {item?.id}</h2>
-                    </div>
-                    <div className={TabStyle.cardBody}>
-                      <p>score: {item?.score}</p>
-                      <p>organizations_url: {item?.organizations_url}</p>
-                      <p>site_admin: {item?.site_admin}</p>
-                    </div>
+                <div
+                  className={TabStyle.card}
+                  onClick={() => {
+                    router.push(`/users/${item.id}`, undefined, {
+                      shallow: true,
+                    });
+                  }}
+                  key={key}
+                >
+                  <div className={TabStyle.cardHeader}>
+                    <h2>ID: {item?.id}</h2>
                   </div>
-                // </Link>
+                  <div className={TabStyle.cardBody}>
+                    <p>score: {item?.score}</p>
+                    <p>organizations_url: {item?.organizations_url}</p>
+                    <p>site_admin: {item?.site_admin}</p>
+                  </div>
+                </div>
               );
             })}
           </div>
@@ -52,24 +50,16 @@ const TabbedContent: React.FC<Props> = ({ tabs }) => {
           <div className={TabStyle.infomationWrapper}>
             {selectedTab?.content?.items?.map((item: any, key: any) => {
               return (
-                // <Link
-                //   href={{
-                //     pathname: "/repos",
-                //     query: { id: item?.id },
-                //   }}
-                //   key={key}
-                // >
-                  <div className={TabStyle.card}>
-                    <div className={TabStyle.cardHeader}>
-                      <h2>full name: {item?.full_name}</h2>
-                    </div>
-                    <div className={TabStyle.cardBody}>
-                      <p>score: {item?.score}</p>
-                      <p>watchers count: {item.watchers_count}</p>
-                      <p>forks: {item?.forks}</p>
-                    </div>
+                <div className={TabStyle.card}>
+                  <div className={TabStyle.cardHeader}>
+                    <h2>full name: {item?.full_name}</h2>
                   </div>
-                // </Link>
+                  <div className={TabStyle.cardBody}>
+                    <p>score: {item?.score}</p>
+                    <p>watchers count: {item.watchers_count}</p>
+                    <p>forks: {item?.forks}</p>
+                  </div>
+                </div>
               );
             })}
           </div>
