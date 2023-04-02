@@ -1,0 +1,14 @@
+.main {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  background-color: #a2d9a2;
+  gap: 20px;
+}
+
+.title {
+  color: #276749;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}

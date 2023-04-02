@@ -1,0 +1,36 @@
+.searchInput {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.searchInput input {
+  flex: 1;
+  border: none;
+  padding: 8px;
+  font-size: 16px;
+  background-color: #fff;
+  outline-style: none;
+  color: #333;
+}
+
+.searchInput button {
+  border: none;
+  background-color: #059669;
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.searchInput button:hover {
+  background-color: #046446;
+}
+
+.searchInput svg {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+}

@@ -1,0 +1,29 @@
+.main {
+  min-width: 100vw;
+  min-height: 88vh;
+  margin: auto;
+  background-color: #fff;
+  /* display: flex;
+  justify-content: center; */
+}
+
+.container {
+  max-width: 1170px;
+  margin: auto;
+  background-color: #fff;
+}
+
+.text {
+  color: black;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) and (max-width: 1120px) {
+  .grid {
+    grid-template-columns: repeat(2, 50%);
+  }
+}
