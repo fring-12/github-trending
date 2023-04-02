@@ -52,6 +52,8 @@ const Home: React.FC<Props> = ({ users, repositories }) => {
   const [gitRepos, setGitrepos] = React.useState(repositories);
   const [seach, setSearchValue] = React.useState("");
   const [currentPage, setCurrentPage] = React.useState(1);
+  console.log(users);
+  
 
   const tabs: Tab[] = [
     { id: 1, label: "users", content: gitUsers },

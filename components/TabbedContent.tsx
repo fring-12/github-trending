@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TabStyle from "@/styles/Tab.module.css";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 interface Props {
   tabs: Tab[];
@@ -8,6 +8,7 @@ interface Props {
 
 const TabbedContent: React.FC<Props> = ({ tabs }) => {
   const [selectedTabId, setSelectedTabId] = useState<number>(tabs[0].id);
+  const router = useRouter();
 
   const handleTabClick = (tabId: number) => {
     setSelectedTabId(tabId);
@@ -22,14 +23,16 @@ const TabbedContent: React.FC<Props> = ({ tabs }) => {
           <div className={TabStyle.infomationWrapper}>
             {selectedTab?.content?.items?.map((item: any, key: any) => {
               return (
-                <Link
-                  href={{
-                    pathname: "/users",
-                    query: { id: item?.id },
-                  }}
-                  key={key}
-                >
-                  <div className={TabStyle.card}>
+                // <Link
+                //   href={{
+                //     pathname: "/users",
+                //     query: { id: item?.id },
+                //   }}
+                //   key={key}
+                // >
+                  <div className={TabStyle.card} onClick={() => {
+                    router.push(`/users/${item.id}`, undefined, { shallow: true });
+                  }} key={key}>
                     <div className={TabStyle.cardHeader}>
                       <h2>ID: {item?.id}</h2>
                     </div>
@@ -39,7 +42,7 @@ const TabbedContent: React.FC<Props> = ({ tabs }) => {
                       <p>site_admin: {item?.site_admin}</p>
                     </div>
                   </div>
-                </Link>
+                // </Link>
               );
             })}
           </div>
@@ -49,13 +52,13 @@ const TabbedContent: React.FC<Props> = ({ tabs }) => {
           <div className={TabStyle.infomationWrapper}>
             {selectedTab?.content?.items?.map((item: any, key: any) => {
               return (
-                <Link
-                  href={{
-                    pathname: "/repos",
-                    query: { id: item?.id },
-                  }}
-                  key={key}
-                >
+                // <Link
+                //   href={{
+                //     pathname: "/repos",
+                //     query: { id: item?.id },
+                //   }}
+                //   key={key}
+                // >
                   <div className={TabStyle.card}>
                     <div className={TabStyle.cardHeader}>
                       <h2>full name: {item?.full_name}</h2>
@@ -66,7 +69,7 @@ const TabbedContent: React.FC<Props> = ({ tabs }) => {
                       <p>forks: {item?.forks}</p>
                     </div>
                   </div>
-                </Link>
+                // </Link>
               );
             })}
           </div>

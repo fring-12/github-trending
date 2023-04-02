@@ -20,9 +20,10 @@ class Services {
   async getRepositories(params: any) {
     try {
       const response = await axios.get(
-        `${this.baseUrl}` + "/search/repositories",{
-        params: params,
-      }
+        `${this.baseUrl}` + "/search/repositories",
+        {
+          params: params,
+        }
       );
       return response.data;
     } catch (error) {
@@ -31,9 +32,8 @@ class Services {
   }
 
   async getSearchResult(params: any) {
-
     const userResponse = await this.getUsers(params);
-    const reposReponse = await this.getRepositories(params)
+    const reposReponse = await this.getRepositories(params);
 
     return {
       users: userResponse,
@@ -41,9 +41,16 @@ class Services {
     };
   }
 
-  async getUserById(userId: number) {
-    const response = await axios.get(`${this.baseUrl}/users/${userId}`);
-    return response.data;
+  async getUserById(id : number) {
+    try {
+      const response = await axios.get(
+        `${this.baseUrl}/search/users/${id}`
+      );
+      console.log("response", response);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
